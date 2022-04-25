@@ -58,16 +58,16 @@ double Cryptanalysis::englishProbabilityScore(const std::vector<uint8_t>& input)
         }
     }
 
-    double probs[26] = {0.0};
-    double corr_num = 0.0;
-    double corr_d1 = 0.0;
-    double corr_d2 = 0.0;
+    auto corr_num = 0.0;
+    auto corr_d1 = 0.0;
+    auto corr_d2 = 0.0;
     for (auto i = 0; i < 26; i++) {
-        probs[i] = (double)counts[i] / (double)total;
-        // numerator of correlation, the covariance.
-        corr_num += (probs[i] - ENGLISH_SAMPLE_AVERAGE) * (ENGLISH_PROBABILITIES[i] - ENGLISH_SAMPLE_AVERAGE);
-        // denominator of correlation, the standard deviations
-        corr_d1 += (probs[i] - ENGLISH_SAMPLE_AVERAGE) * (probs[i] - ENGLISH_SAMPLE_AVERAGE);
+        auto probability = (double)counts[i] / (double)total_valid;
+        // Do a simple correlation. Note that we are assuming the valid characters are the only
+        // ones that appeared and that normally the sample average would actually be the ideal
+        // instead of the actual.
+        corr_num += (probability - 1 / 30.0f) * (ENGLISH_PROBABILITIES[i] - ENGLISH_SAMPLE_AVERAGE);
+        corr_d1 += (probability - 1 / 30.0f) * (probability - 1 / 30.0f);
         corr_d2 += (ENGLISH_PROBABILITIES[i] - ENGLISH_SAMPLE_AVERAGE)
                 * (ENGLISH_PROBABILITIES[i] - ENGLISH_SAMPLE_AVERAGE);
     }
@@ -79,7 +79,7 @@ double Cryptanalysis::englishProbabilityScore(const std::vector<uint8_t>& input)
     // valid english character to character ratio
     double valid_ratio = (double)total_valid / (double)total;
 
-    // we give the valid ratio just as much weight as we do the correlation with character frequency
-    return (corr + valid_ratio) / 2.0;
+    // we give the valid ratio twice as much weight as we do the correlation with character frequency
+    return (corr + valid_ratio * 2) / 3.0;
 }
 
