@@ -1,3 +1,16 @@
+// Copyright (c) 2022 by Steven Goldade
+// This file is licensed under the MIT License. Please see the LICENSE file in the root directory for more info.
+
+/**
+ * @file Base64.cpp
+ * @author Steven Goldade <smgoldade@gmail.com>
+ *
+ * @section LICENSE
+ * Please see LICENSE in the root directory.
+ *
+ * @section DESCRIPTION
+ * Implements the Base64 class
+ */
 #include <stdexcept>
 #include "include/Base64.h"
 

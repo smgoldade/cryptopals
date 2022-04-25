@@ -1,3 +1,16 @@
+// Copyright (c) 2022 by Steven Goldade
+// This file is licensed under the MIT License. Please see the LICENSE file in the root directory for more info.
+
+/**
+ * @file HexUtil.cpp
+ * @author Steven Goldade <smgoldade@gmail.com>
+ *
+ * @section LICENSE
+ * Please see LICENSE in the root directory.
+ *
+ * @section DESCRIPTION
+ * Implements the HexUtil class
+ */
 #include <stdexcept>
 #include "HexUtil.h"
 

@@ -1,7 +1,19 @@
+// Copyright (c) 2022 by Steven Goldade
+// This file is licensed under the MIT License. Please see the LICENSE file in the root directory for more info.
+
+/**
+ * @file challenge-1.cpp
+ * @author Steven Goldade <smgoldade@gmail.com>
+ *
+ * @section LICENSE
+ * Please see LICENSE in the root directory.
+ *
+ * @section DESCRIPTION
+ * Contains the solution for Set 1 Challenge 1
+ */
 #include <Base64.h>
 #include <format>
 #include <iostream>
-#include <vector>
 
 int main() {
     std::string encoded = "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t";
