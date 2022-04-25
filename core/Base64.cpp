@@ -1,5 +1,5 @@
-#include "include/Base64.h"
 #include <stdexcept>
+#include "include/Base64.h"
 
 char Base64::lookup[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                          'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -10,8 +10,8 @@ char Base64::lookup[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
                          'w', 'x', 'y', 'z', '0', '1', '2', '3',
                          '4', '5', '6', '7', '8', '9', '+', '/'};
 
-std::vector<char> Base64::encode(const std::vector<uint8_t>& input) {
-    auto encoded = std::vector<char>();
+std::string Base64::encode(const std::vector<uint8_t>& input) {
+    auto encoded = std::string();
 
     for (auto i = 0; i < input.size(); i += 3) {
         auto pad_1 = i + 2 >= input.size();
@@ -43,7 +43,7 @@ std::vector<char> Base64::encode(const std::vector<uint8_t>& input) {
     return encoded;
 }
 
-std::vector<uint8_t> Base64::decode(const std::vector<char>& input) {
+std::vector<uint8_t> Base64::decode(const std::string& input) {
     auto decode = std::vector<uint8_t>();
 
     uint8_t working = 0;
@@ -52,13 +52,12 @@ std::vector<uint8_t> Base64::decode(const std::vector<char>& input) {
         HIGH_6,
         HIGH_4,
         HIGH_2
-    };
-    auto state = CLEAN;
+    } state = CLEAN;
     for (char c : input) {
         auto val = -1;
-        for (auto j = 0; j < 64; j++) {
-            if (lookup[j] == c) {
-                val = j;
+        for (auto i = 0; i < 64; i++) {
+            if (lookup[i] == c) {
+                val = i;
                 break;
             }
         }
