@@ -17,5 +17,5 @@ cd cryptopals
 mkdir cmake_build
 cd cmake_build
 cmake ../cryptopals
-cmake --build
+cmake --build .
 ```

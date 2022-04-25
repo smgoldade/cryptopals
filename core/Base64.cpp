@@ -59,6 +59,7 @@ std::vector<uint8_t> Base64::decode(const std::vector<char>& input) {
         for (auto j = 0; j < 64; j++) {
             if (lookup[j] == c) {
                 val = j;
+                break;
             }
         }
 
