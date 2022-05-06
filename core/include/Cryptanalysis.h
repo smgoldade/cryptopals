@@ -29,7 +29,7 @@ public:
      * @param input a vector containing the data to be analyzed
      * @return a value representing the input data's probability score of being English.
      */
-    static double englishProbabilityScore(const std::vector<uint8_t>& input);
+    static double english_probability_score(const std::vector<uint8_t>& input);
 };
 
 #endif //CRYPTOPALS_CRYPTANALYSIS_H

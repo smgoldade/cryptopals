@@ -16,11 +16,12 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "Secure.h"
 
 class HexUtil {
 public:
-    static std::string toHexString(const std::vector<uint8_t>& input);
-    static std::vector<uint8_t> toBytes(const std::string& input);
+    static SecureString toHexString(const SecureVector<uint8_t>& input);
+    static SecureVector<uint8_t> toBytes(const SecureString& input);
 };
 
 #endif //CRYPTOPALS_HEXUTIL_H

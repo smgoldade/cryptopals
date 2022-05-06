@@ -16,12 +16,13 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "Secure.h"
 
 class Base64 {
 public:
     static const char PADDING = '=';
-    static std::string encode(const std::vector<uint8_t>& input);
-    static std::vector<uint8_t> decode(const std::string& input);
+    static SecureString encode(const std::vector<uint8_t, SecureAllocator<uint8_t>>& input);
+    static std::vector<uint8_t, SecureAllocator<uint8_t>> decode(const SecureString& input);
 private:
     static char lookup[64];
 };
