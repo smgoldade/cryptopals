@@ -26,7 +26,7 @@ enum class CipherOperationMode {
 };
 
 class Cipher {
-    virtual void init(CipherOperationMode mode, AlgorithmParameters*parameters) = 0;
+    virtual void init(CipherOperationMode mode, AlgorithmParameters* parameters) = 0;
     virtual void partial(SecureVector<uint8_t> octet_stream) = 0;
     virtual SecureVector<uint8_t> final(SecureVector<uint8_t> octet_stream) = 0;
 };

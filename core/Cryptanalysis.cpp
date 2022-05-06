@@ -12,6 +12,7 @@
  * Implements the Cryptanalysis class
  */
 #include <Cryptanalysis.h>
+
 const double Cryptanalysis::ENGLISH_PROBABILITIES[26] = {
     0.0834, // A
     0.0154, // B

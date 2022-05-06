@@ -20,11 +20,11 @@
 
 class XORCipher : Cipher {
 public:
-    void init(CipherOperationMode md, AlgorithmParameters*param) override;
+    void init(CipherOperationMode md, AlgorithmParameters* param) override;
     void partial(SecureVector<uint8_t> octet_stream) override;
     SecureVector<uint8_t> final(SecureVector<uint8_t> octet_stream) override;
 private:
-    const AlgorithmParameters*parameters;
+    const AlgorithmParameters* parameters;
     std::vector<uint8_t, SecureAllocator<uint8_t>> buffer;
 };
 

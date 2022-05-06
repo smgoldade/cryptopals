@@ -13,7 +13,7 @@
  */
 #include "XORCipher.h"
 
-void XORCipher::init(CipherOperationMode md, AlgorithmParameters*param) {
+void XORCipher::init(CipherOperationMode md, AlgorithmParameters* param) {
     this->parameters = param;
 }
 

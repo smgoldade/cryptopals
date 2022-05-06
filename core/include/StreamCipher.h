@@ -21,7 +21,7 @@ class StreamCipher {
 public:
     StreamCipher() : cipher(CIPHER_TYPE()) {}
 
-    void init(CipherOperationMode mode, AlgorithmParameters*parameters) {
+    void init(CipherOperationMode mode, AlgorithmParameters* parameters) {
         cipher.init(mode, parameters);
     }
 
