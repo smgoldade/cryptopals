@@ -9,7 +9,7 @@
  * Please see LICENSE in the root directory.
  *
  * @section DESCRIPTION
- *
+ * Defines a XORCipher class, which does a simple XOR.
  */
 
 #ifndef _XORCIPHER_H_

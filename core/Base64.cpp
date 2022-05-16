@@ -55,7 +55,7 @@ SecureString Base64::encode(const SecureVector<uint8_t>& input) {
 }
 
 SecureVector<uint8_t> Base64::decode(const SecureString& input) {
-    auto decode = std::vector<uint8_t, SecureAllocator<uint8_t>>();
+    auto decode = SecureVector<uint8_t>();
 
     uint8_t working = 0;
     enum {
@@ -80,7 +80,7 @@ SecureVector<uint8_t> Base64::decode(const SecureString& input) {
 
         switch(state) {
         case CLEAN:
-            working = val << 2;
+            working = (uint8_t)(val << 2);
             state = HIGH_6;
             break;
         case HIGH_6:
@@ -94,7 +94,7 @@ SecureVector<uint8_t> Base64::decode(const SecureString& input) {
             state = HIGH_2;
             break;
         case HIGH_2:
-            decode.push_back(working + val);
+            decode.push_back((uint8_t)(working + val));
             working = 0;
             state = CLEAN;
             break;

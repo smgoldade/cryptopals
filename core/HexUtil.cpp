@@ -49,11 +49,11 @@ SecureVector<uint8_t> HexUtil::toBytes(const SecureString& input) {
 
         switch(state) {
         case CLEAN:
-            working = val << 4;
+            working = (uint8_t)(val << 4);
             state = HIGH;
             break;
         case HIGH:
-            bytes.push_back(working + val);
+            bytes.push_back((uint8_t)(working + val));
             state = CLEAN;
             break;
         default:

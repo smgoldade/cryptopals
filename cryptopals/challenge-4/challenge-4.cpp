@@ -45,8 +45,8 @@ int main() {
             cipher.init(CipherOperationMode::ENCRYPT, &rk);
 
             auto result = cipher.stream(hex);
-            auto prob = Cryptanalysis::english_probability_score(unsafe_vector(result));
-            results.emplace_back(prob, key, line_number, result);
+            auto prob = Cryptanalysis::english_probability_score(result);
+            results.emplace_back(prob, static_cast<uint8_t>(key), line_number, result);
         }
         line_number++;
     }

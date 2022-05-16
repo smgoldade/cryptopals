@@ -65,12 +65,26 @@ template <class T>
 using SecureVector = std::vector<T, SecureAllocator<T>>;
 
 template <class T>
-std::vector<T> unsafe_vector(SecureVector<T> vector) {
-    auto unsafe = std::vector<T>();
+SecureVector<T> operator^(const SecureVector<T> a, const SecureVector<T> b) {
+    auto o = SecureVector<T>();
 
-    unsafe.insert(unsafe.end(), vector.begin(), vector.end());
-    return unsafe;
+    auto len = std::min(a.size(), b.size());
+    for(auto i = 0; i < len; i++) {
+        o.emplace_back(a[i] ^ b[i]);
+    }
+
+    return o;
 }
 
 using SecureString = std::basic_string<char, std::char_traits<char>, SecureAllocator<char>>;
+
+template <class T>
+SecureVector<T> string_to_vector(SecureString string) {
+    return SecureVector<T>(string.begin(), string.end());
+}
+
+template <class T>
+SecureString vector_to_string(SecureVector<T> vector) {
+    return SecureString(vector.begin(), vector.end());
+}
 #endif //CRYPTOPALS_CORE_INCLUDE_SECUREALLOCATOR_H

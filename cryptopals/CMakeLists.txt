@@ -5,9 +5,14 @@ project(cryptopals)
 
 set(CMAKE_CXX_STANDARD 23)
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    add_compile_options(/W4)
+endif ()
+
 add_subdirectory(../core cmake-core)
 add_subdirectory(challenge-1)
 add_subdirectory(challenge-2)
 add_subdirectory(challenge-3)
 add_subdirectory(challenge-4)
 add_subdirectory(challenge-5)
+add_subdirectory(challenge-6)

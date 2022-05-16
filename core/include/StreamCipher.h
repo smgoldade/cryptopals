@@ -25,16 +25,13 @@ public:
         cipher.init(mode, parameters);
     }
 
-    std::vector<uint8_t, SecureAllocator<uint8_t>>
-    stream(const std::vector<uint8_t, SecureAllocator<uint8_t>>& octet_stream);
+    SecureVector<uint8_t> stream(const SecureVector<uint8_t>& octet_stream);
 private:
     CIPHER_TYPE cipher;
 };
 
 template <class CIPHER_TYPE>
-std::vector<uint8_t, SecureAllocator<uint8_t>> StreamCipher<CIPHER_TYPE>::stream(
-    const std::vector<uint8_t, SecureAllocator<uint8_t>>& octet_stream) {
-
+SecureVector<uint8_t> StreamCipher<CIPHER_TYPE>::stream(const SecureVector<uint8_t>& octet_stream) {
     return cipher.final(octet_stream);
 }
 

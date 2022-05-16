@@ -9,7 +9,7 @@
  * Please see LICENSE in the root directory.
  *
  * @section DESCRIPTION
- *
+ * Contains the implementation of the RepeatingKeyParameter class
  */
 
 #include "RepeatingKeyParameter.h"

@@ -9,7 +9,8 @@
  * Please see LICENSE in the root directory.
  *
  * @section DESCRIPTION
- *
+ * Defines a RepeatingKeyParameter class, which is a simple AlgorithmParameters that simply provides the key
+ * over and over in a reptitive fashion. e.g. If the key is "ICE" it will provide "ICEICEICEICE..."
  */
 
 #ifndef _REPEATINGKEYPARAMETER_H_

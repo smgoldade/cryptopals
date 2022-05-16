@@ -9,11 +9,11 @@
  * Please see LICENSE in the root directory.
  *
  * @section DESCRIPTION
- *
+ * Contains the implementation of the XOR Cipher
  */
 #include "XORCipher.h"
 
-void XORCipher::init(CipherOperationMode md, AlgorithmParameters* param) {
+void XORCipher::init(CipherOperationMode, AlgorithmParameters* param) {
     this->parameters = param;
 }
 
